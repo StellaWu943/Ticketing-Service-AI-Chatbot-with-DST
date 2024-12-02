@@ -23,13 +23,13 @@ multiwoz dataset card
 
 ## Resource links 
 * Quick Links to related papers
-	* [A Survey of GPT-3 Family Large Language Models Including ChatGPT and GPT-4](https://arxiv.org/abs/2310.12321)
- 	* [Robustness Over Time: Understanding Adversarial Examples' Effectiveness on Longitudinal Versions of Large Language Models](https://arxiv.org/abs/2308.07847)
-  * [https://github.com/microsoft/LoRA](https://arxiv.org/abs/2311.16101))
- 	* [Trustworthy LLMs: a Survey and Guideline for Evaluating Large Language Models' Alignment](https://arxiv.org/abs/2308.05374)
+	* [Chain of Thought Explanation for Dialogue State Tracking](https://arxiv.org/abs/2403.04656)
+ 	* ["Do you follow me?": A Survey of Recent Approaches in Dialogue State Tracking](https://arxiv.org/abs/2207.14627)
+  	* [Learning to Ask Questions for Zero-shot Dialogue State Tracking](https://core.ac.uk/outputs/591216830/?source=2)
+ 	* [Recurrent Polynomial Network for Dialogue State Tracking](https://core.ac.uk/outputs/559990324/?source=2)
 * Relevant blog posts and videos
-  * [GPT-3.5 and GPT-4 comparative analysis](https://datasciencedojo.com/blog/gpt-3-5-and-gpt-4-comparative-analysis/)
-  * [GPT-4o vs. GPT-4 vs. GPT-3.5 Comparison in Real-World Scenarios](https://neoteric.eu/blog/gpt-4o-vs-gpt-4-vs-gpt-3-5-comparison-in-real-world-scenarios/)
+  * [Dialogue State Tracking](https://paperswithcode.com/task/dialogue-state-tracking)
+  * [Mastering Dialogue Systems: Fine-tuning GPT for Dialogue State Tracking and Dialogue Management](https://30dayscoding.com/blog/fine-tuning-gpt-for-dialogue-state-tracking-and-dialogue-management?srsltid=AfmBOop8ZwFd63bDhxO11zuQHZ8R0YCzrblyrhg0Z0XNMownPJ-6ZSM6)
 
 
 
