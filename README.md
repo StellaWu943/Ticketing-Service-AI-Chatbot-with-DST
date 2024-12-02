@@ -27,7 +27,7 @@ multiwoz dataset card
  	* ["Do you follow me?": A Survey of Recent Approaches in Dialogue State Tracking](https://arxiv.org/abs/2207.14627)
   	* [Learning to Ask Questions for Zero-shot Dialogue State Tracking](https://core.ac.uk/outputs/591216830/?source=2)
  	* [Recurrent Polynomial Network for Dialogue State Tracking](https://core.ac.uk/outputs/559990324/?source=2)
-* Relevant blog posts and videos
+* Relevant blog posts
   * [Dialogue State Tracking](https://paperswithcode.com/task/dialogue-state-tracking)
   * [Mastering Dialogue Systems: Fine-tuning GPT for Dialogue State Tracking and Dialogue Management](https://30dayscoding.com/blog/fine-tuning-gpt-for-dialogue-state-tracking-and-dialogue-management?srsltid=AfmBOop8ZwFd63bDhxO11zuQHZ8R0YCzrblyrhg0Z0XNMownPJ-6ZSM6)
 
