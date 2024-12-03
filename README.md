@@ -1,27 +1,34 @@
 # Ticketing Service AI Chatbot with DST
 
 ## Overview 
-This project focuses on developing a Train Ticketing AI Chatbot powered by mistral leveraging Dialog State Tracking (DST) to provide an intelligent, user-friendly interface for train ticket booking. The chatbot utilizes the MultiWOZ 2.2 dataset, a rich dataset for conversational AI tasks, to train its conversational capabilities. The primary components of the project include:
+### Context and Problem Statement
+With the increasing demand for seamless and efficient customer service in industries like transportation, AI-powered chatbots have become vital tools for automating user interactions. One common scenario is train ticket booking, which often involves multi-turn conversations requiring the chatbot to understand and remember user preferences. Traditional rule-based systems struggle to handle complex and dynamic interactions, leading to user frustration.
+
+This project addresses the challenge of building an intelligent chatbot capable of managing multi-turn conversations while dynamically tracking the dialog state. The goal is to create a system that ensures context awareness, improves user satisfaction, and streamlines the train ticket booking process.
+
+### Approach
+To tackle this problem, the project leverages Dialog State Tracking (DST), a critical component of task-oriented dialogue systems, alongside cutting-edge transformer models. The chatbot is designed to:
+
+- Understand user inputs by extracting entities such as departure and destination cities, travel dates, and user intents.
+- Maintain context and remember conversation history to provide relevant and consistent responses across multiple turns.
+- Utilize a large-scale transformer model, Mistral, hosted on Ollama, to enhance natural language understanding and generation.
+
+### Solution Implementation
+The solution involves several key steps:
 
 - **Dataset Loading and Exploration:**
-
-The chatbot is trained on the MultiWOZ 2.2 dataset, which includes structured dialogue data tailored for real-world scenarios like ticket booking.
-
-- **Integration with LLMs (Large Language Models):**
-
-The chatbot interfaces with Mistral, hosted on Ollama, to leverage advanced transformer-based capabilities for natural language understanding and generation.
-
+Utilizes the MultiWOZ 2.2 dataset, a benchmark for dialogue systems, providing rich conversational data tailored for task-oriented scenarios like ticket booking.
 - **Dialog State Management:**
-
-The project implements robust Dialog State Tracking (DST), enabling the chatbot to understand and remember the user’s intent and preferences during multi-turn conversations. It also maintains a record of chat history, ensuring continuity in the dialogue and allowing the chatbot to reference previous interactions for better context and accuracy.
-
+Implements robust DST to track user intents, entities, and preferences.
+Maintains a record of chat history to ensure the chatbot understands the context of ongoing conversations.
+- **Transformer Integration:**
+Integrates the Mistral transformer model for natural language understanding and generation, enhancing the chatbot's ability to interpret and respond to user queries.
 - **Entity Recognition and Intent Detection:**
-
-Using regular expressions and classification mechanisms, the chatbot extracts entities like train destinations, dates, and times while detecting user intent (e.g., ticket inquiry or cancellation).
-
-- **Evaluation of Chatbot Performance:**
-
-The chatbot's responses are evaluated on metrics such as BLEU score, dialogue success rate, and match rate to ensure its effectiveness and usability.
+Extracts critical information (e.g., cities, dates, times) and detects user intents to drive the conversation.
+- **API and Backend Integration:**
+Implements methods to simulate ticket searches and handle booking operations effectively.
+- **Evaluation:**
+Measures chatbot performance using metrics like intent recognition accuracy, dialogue success rate, and user satisfaction, ensuring the system meets its objectives.
 
 ## Dialogue State Tracking (DST)
 Dialog State Tracking (DST) is a core component of task-oriented dialogue systems, designed to manage and maintain the conversation context across multiple turns of interaction. In these systems, the chatbot interacts with users to accomplish specific tasks, such as booking tickets, ordering food, or answering queries.
