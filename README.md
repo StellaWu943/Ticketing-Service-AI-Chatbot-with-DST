@@ -99,19 +99,99 @@ Mistral balances performance with resource efficiency, providing high-quality ou
 By choosing Mistral, the project benefits from a cutting-edge model that is both powerful and adaptable, ensuring a robust and efficient chatbot capable of meeting user needs effectively.
 
 ## Dataset
-
 The MultiWOZ (Multi-Domain Wizard-of-Oz) dataset is a large-scale, multi-domain dialogue dataset containing conversations between users and systems across various domains, such as restaurant booking, train scheduling, and hotel reservations. It is widely used for training and evaluating conversational agents, particularly in multi-domain dialogue state tracking. The dataset is available through Hugging Face Datasets and other academic repositories, with permissions allowing non-commercial academic use, provided users adhere to the dataset license. Preprocessing scripts for MultiWOZ are included in the project notebook, enabling seamless integration into the training pipeline.
+
+Link to MultiWOZ dataset: https://huggingface.co/datasets/pfb30/multi_woz_v22.
+
+**_Data_Example:_**
+A data instance consists of a complete multi-turn dialogue between a USER and a SYSTEM. Each turn contains a single utterance. The USER's utterances are additionally annotated with frames that specify their intent and belief state.
+
+```
+[{'service': ['attraction'],
+  'slots': [{'copy_from': [],
+    'copy_from_value': [],
+    'exclusive_end': [],
+    'slot': [],
+    'start': [],
+    'value': []}],
+  'state': [{'active_intent': 'find_attraction',
+    'requested_slots': [],
+    'slots_values': {'slots_values_list': [['east']],
+     'slots_values_name': ['attraction-area']}}]},
+ {'service': [], 'slots': [], 'state': []}]
+```
+
+**_Chatbot_Example:_**
+This example highlights the chatbot's ability to handle diverse travel-related intents, retrieve relevant evidence, and provide appropriate responses, demonstrating its potential as a travel assistant using the MultiWOZ dataset for structured dialogue management.
+
+```
+User: I want to book a hotel in the city center.
+Chatbot:  Of course! Let's find you a great hotel in the city center. Could you please specify the city you'll be visiting? Also, it would be helpful if you could tell me your preferred dates of stay and any specific amenities or services that you require. I'm here to help you find the perfect accommodation for your trip!
+
+Evidence: Mock data retrieved for intent 'reservation_request' with details: {}
+Retrieved Results So Far: {'reservation_request': "Mock data retrieved for intent 'reservation_request' with details: {}"}
+
+User: Can you find me a train to New York?
+Chatbot:  Of course! I can help you with that. To provide the best options, could you please tell me which specific city in New York you're planning to visit and your preferred travel date(s) as well? For instance, are you looking to go to New York City (JFK Airport or Penn Station) on 11/7/2024? I can search for train schedules from there. If you need assistance with finding a hotel in New York as well, just let me know!
+
+Evidence: Mock data retrieved for intent 'train_schedule' with details: {}
+Retrieved Results So Far: {'reservation_request': "Mock data retrieved for intent 'reservation_request' with details: {}", 'train_schedule': "Mock data retrieved for intent 'train_schedule' with details: {}"}
+
+User: I need a taxi to the airport by 5 PM.
+Chatbot:  Of course! Let me help you with that. To ensure a smooth ride, I'll need some more details from you. Could you please tell me which airport you're heading to and your exact pick-up location? Also, would it be convenient for me to book the taxi for 5 PM local time or is there a specific timezone you're referring to? Once I have this information, I'll be able to arrange the best possible taxi service for you. Looking forward to assisting!
+
+Evidence: Mock data retrieved for intent 'find_taxi' with details: {}
+Retrieved Results So Far: {'reservation_request': "Mock data retrieved for intent 'reservation_request' with details: {}", 'train_schedule': "Mock data retrieved for intent 'train_schedule' with details: {}", 'find_taxi': "Mock data retrieved for intent 'find_taxi' with details: {}"}
+```
 
 ## Critical Analysis
 
 ### Impact
-This project showcases the potential of AI in automating and optimizing ticketing services, reducing the workload of human operators while offering a seamless user experience. The chatbot can efficiently handle multi-turn conversations and adapt to user needs in real time, paving the way for advancements in customer service automation.
+This project highlights the challenges and opportunities in leveraging AI for automating ticketing services. While the chatbot demonstrates an ability to handle multi-turn conversations and intent recognition, the results suggest significant limitations in generating accurate, high-quality responses and completing tasks effectively. Despite these challenges, the chatbot lays a foundational framework for integrating AI into customer service, reducing the manual workload of human operators and providing a structured approach to user interactions.
 
 ### Results
-The chatbot demonstrates strong performance, highlighting its effectiveness in managing dialogue state tracking across various scenarios. Its ability to provide accurate and context-aware responses enhances the user experience, showcasing its potential for real-world applications. However, challenges remain, particularly in handling ambiguous user inputs and out-of-domain queries, which present opportunities for further refinement.
+
+These results are based on the example conversation derived from the MultiWOZ dataset, which was used to evaluate the performance of a dialogue system.
+
+**_Some_Evaluation_Dialogue_Turns:_**
+```
+Dialogue ID: 0, Turn ID: 1
+Chatbot Response: of course to make things easier for you ill help you book your train tickets from norwich to cambridge for november 5th 2024 let me check the available trains and get back to you shortly
+
+in the meantime if you have any questions about local attractions in cambridge or need suggestions on restaurants or hotels feel free to ask im here to help make your trip as smooth as possible
+
+stay tuned for more updates on your train reservations 😊
+
+evidence mock data retrieved for intent trainschedule with details
+Reference Response: i have 133 trains matching your request is there a specific day and time you would like to travel
+BLEU Score: 0.0032
+--------------------------------------------------------------------------------
+Dialogue ID: 0, Turn ID: 3
+Chatbot Response: great let me help you plan your trip for next monday november 11th 2024 to ensure that you arrive by 6 pm local time at your destination well need to figure out the departing city and consider any traveltime adjustments due to time zones can you please tell me the city you are currently located in and the city where you would like to go also do you have any preference for a specific hotel or airline i can help you with the best options based on your requirements
+
+evidence mock data retrieved for intent generalinquiry with details
+Reference Response: there are 12 trains for the day and time you request would you like to book it now
+BLEU Score: 0.0058
+--------------------------------------------------------------------------------
+Dialogue ID: 0, Turn ID: 5
+Chatbot Response: of course to help you better could you please specify which mode of transportation youre considering for instance taxi train or flight and if its a flight from which airport to where exactly are you planning to travel on november 5th 2024 id be more than happy to provide the travel time price and departure details once i have that information also if there is any flexibility in your dates or times it could help me give you the best options
+
+evidence mock data retrieved for intent reservationrequest with details
+Reference Response: there are 12 trains meeting your needs with the first leaving at 0516 and the last one leaving at 1616 do you want to book one of these
+BLEU Score: 0.0036
+--------------------------------------------------------------------------------
+```
+
+- The **Average BLEU Score** (0.0056) measures the quality of generated responses by comparing them to reference responses in the dataset. A score this low indicates that the chatbot's generated responses are only marginally similar to the reference responses, suggesting significant room for improvement in response generation.
+
+- The **Success Rate** (20.00%) represents the percentage of dialogues where the chatbot successfully fulfills the user's intent or completes the task. This indicates that the system is correctly handling user intents in only 1 out of 5 dialogues, pointing to a need for better intent handling or task execution.
+
+- The **Match Rate** (10.81%) reflects the percentage of dialogues where the system's output matches the expected database entries or contextual information required to fulfill the user’s request. This shows that the system struggles with retrieving or aligning information with the user’s needs, highlighting a gap in database retrieval or contextual understanding.
+
+These metrics indicate that the dialogue system is underperforming in generating high-quality, accurate, and contextually relevant responses. Improvements are needed in response generation, intent recognition, task handling, and database retrieval to enhance overall system performance.
 
 ### Next Steps
-Moving forward, the next steps involve deploying the chatbot on real-world ticketing platforms to gather user feedback and evaluate its performance under practical conditions. To enhance its capabilities, exploring advanced transformer models like GPT-4 or fine-tuning the existing architecture for better domain-specific adaptation is recommended. Additionally, scalability efforts should focus on expanding the chatbot to handle more domains and integrating external APIs for real-time ticket booking functionality.
+Based on the results, the immediate next steps involve improving the system’s response generation and intent fulfillment by refining the underlying architecture and training process. Enhancing database retrieval accuracy and integrating better contextual understanding mechanisms are critical for improving match and success rates. Exploring more advanced models, such as fine-tuned transformers or alternative architectures, may help address the performance gaps. Additionally, testing the system on broader datasets and collecting user feedback in controlled environments can provide valuable insights for future iterations. Scalability efforts should also consider expanding the chatbot to support additional domains and integrating API capabilities to streamline ticketing processes.
 
 ## Resource links 
 * Quick Links to related papers
