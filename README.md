@@ -203,15 +203,3 @@ Based on the results, the immediate next steps involve improving the system’s 
   * [Dialogue State Tracking](https://paperswithcode.com/task/dialogue-state-tracking)
   * [Mastering Dialogue Systems: Fine-tuning GPT for Dialogue State Tracking and Dialogue Management](https://30dayscoding.com/blog/fine-tuning-gpt-for-dialogue-state-tracking-and-dialogue-management?srsltid=AfmBOop8ZwFd63bDhxO11zuQHZ8R0YCzrblyrhg0Z0XNMownPJ-6ZSM6)
 
-
-
-
-![](Images/figure1_1.png)
-
-![](Images/figure1_2.png)
-
-**Question 1**
-
-_**In DecodingTrust, one of the evaluation criteria is 'out-of-distribution robustness.' Why is this aspect crucial for assessing the trustworthiness of GPT models?**_
-
-- **Guiding Responsible Deployment of LLMs:**
